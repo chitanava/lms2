@@ -11,5 +11,13 @@
   <h1 class="text-3xl font-bold underline">
     Hello world!
   </h1>
+
+  <div x-data="{ open: false }">
+    <button @click="open = ! open">Toggle Content</button>
+ 
+    <div x-show="open">
+        Content...
+    </div>
+</div>
 </body>
 </html>
