@@ -8,5 +8,9 @@
     ]"/>
   </x-slot>
 
-  <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptates doloribus obcaecati non voluptatem perferendis.</div>
+  <x-admin.page-header title="Lorem ipsum dolor sit amet consectetur.">
+    <a href="" class="btn btn-accent">New page</a>
+  </x-admin.page-header>
+
+  <div>Lorem ipsum dolor sit amet consectetur.</div>
 </x-admin.app>

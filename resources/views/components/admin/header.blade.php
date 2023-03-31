@@ -1,5 +1,5 @@
 <header
-  class="flex justify-between items-center h-16 px-6 bg-base-100 bg-opacity-90 backdrop-blur sticky top-0 z-30 shadow-sm">
+  class="flex justify-between items-center h-16 px-6 bg-base-100 bg-opacity-70 backdrop-blur sticky top-0 z-30 shadow-sm">
   <div class="flex gap-6 items-center">
     <div class="lg:hidden">
       <span class="tooltip tooltip-bottom before:text-xs before:content-[attr(data-tip)]" data-tip="Menu">
@@ -15,7 +15,15 @@
   </div>
   <div>
     <div class="dropdown dropdown-end">
-      <label tabindex="0" class="btn btn-circle m-1">NC</label>
+      <label tabindex="0" class="btn btn-ghost gap-1 normal-case m-1">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+        <span>Nika</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="w-4 h-4 opacity-60 ml-1">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>        
+      </label>
       <div tabindex="0" class="dropdown-content card card-compact w-64 p-2 shadow bg-base-200 text-base-content">
         <div class="card-body">
           <div>
