@@ -18,7 +18,7 @@
       display: none;
     }
   </style>
-  <title>LMS</title>
+  <title>@isset($title) {{ $title }} - @endisset LMS</title>
 </head>
 
 <body>

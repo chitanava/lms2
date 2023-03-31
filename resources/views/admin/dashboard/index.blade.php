@@ -1,4 +1,6 @@
 <x-admin.app>
+  <x-slot name="title">Dashboard</x-slot>
+
   <x-slot name="breadcrumbs">
     <x-admin.breadcrumbs :items="[
         ['title' => 'Dashboard', 'url' => route('admin.dashboard')],
