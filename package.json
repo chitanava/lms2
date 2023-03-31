@@ -13,6 +13,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@alpinejs/persist": "^3.12.0",
         "alpinejs": "^3.12.0",
         "daisyui": "^2.51.5"
     }
