@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap"
     rel="stylesheet">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
+  @stack('scripts')
   <style>
     [x-cloak] {
       display: none;
@@ -31,6 +32,15 @@
         </x-admin.header>
 
         <main class="w-full max-w-7xl mx-auto px-6 gap-6 mb-6 flex flex-col">
+          @if (session('status'))
+            <div class="alert alert-success shadow-sm">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{{ session('status') }}</span>
+              </div>
+            </div>
+          @endif
+
           {{ $slot }}
         </main>
       </div>
