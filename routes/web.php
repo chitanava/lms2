@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\TopicController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,12 +23,12 @@ Route::name('admin.')->prefix('admin')->group(function(){
         return view('admin.dashboard.index');
     })->name('dashboard');
 
-    Route::get('/topics', [TopicController::class, 'index'])->name('topics.index');
-    Route::get('/topics/create', [TopicController::class, 'create'])->name('topics.create');
-    Route::post('/topics', [TopicController::class, 'store'])->name('topics.store');
-    Route::get('/topics/{topic}', [TopicController::class, 'show'])->name('topics.show');
-    Route::get('/topics/{topic}/edit', [TopicController::class, 'edit'])->name('topics.edit');
-    Route::put('/topics/{topic}', [TopicController::class, 'update'])->name('topics.update');
-    Route::delete('/topics/{topic}', [TopicController::class, 'destroy'])->name('topics.destroy');
-    Route::post('/topics/active-toggle', [TopicController::class, 'activeToggle'])->name('topics.active-toggle');
+    Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
+    Route::get('/pages/create', [PageController::class, 'create'])->name('pages.create');
+    Route::post('/pages', [PageController::class, 'store'])->name('pages.store');
+    Route::get('/pages/{page}', [PageController::class, 'show'])->name('pages.show');
+    Route::get('/pages/{page}/edit', [PageController::class, 'edit'])->name('pages.edit');
+    Route::put('/pages/{page}', [PageController::class, 'update'])->name('pages.update');
+    Route::delete('/pages/{page}', [PageController::class, 'destroy'])->name('pages.destroy');
+    Route::post('/pages/active-toggle', [PageController::class, 'activeToggle'])->name('pages.active-toggle');
 });
