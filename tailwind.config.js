@@ -5,6 +5,10 @@ module.exports = {
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
+  safelist: [
+    'w-4',
+    'h-4',
+  ],
   theme: {
     extend: {
       fontFamily: {
