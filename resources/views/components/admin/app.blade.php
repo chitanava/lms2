@@ -22,7 +22,11 @@
   <title>@isset($title) {{ $title }} - @endisset LMS</title>
 </head>
 
-<body>
+<body 
+  x-data="{loaded: false}" 
+  :class="{'no-animation':!loaded}"
+  x-init="setTimeout(() => {loaded = true}, 500)"
+  >
   <div class="drawer drawer-mobile">
     <input id="my-drawer" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
