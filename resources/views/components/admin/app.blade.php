@@ -23,9 +23,14 @@
 </head>
 
 <body 
-  x-data="{loaded: false}" 
-  :class="{'no-animation':!loaded}"
-  x-init="setTimeout(() => {loaded = true}, 500)"
+  class="no-animation"
+  x-init="() => {
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.body.classList.remove('no-animation');
+      }, 500)
+    })
+  }"
   >
   <div class="drawer drawer-mobile">
     <input id="my-drawer" type="checkbox" class="drawer-toggle" />
