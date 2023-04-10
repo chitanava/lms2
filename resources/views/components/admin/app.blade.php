@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap"
     rel="stylesheet">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
+  @livewireStyles
   @stack('scripts')
   <style>
     [x-cloak] {
@@ -59,6 +60,7 @@
       <x-admin.aside></x-admin.aside>
     </div>
   </div>
+  @livewireScripts
 </body>
 
 </html>

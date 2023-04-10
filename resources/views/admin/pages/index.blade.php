@@ -27,13 +27,7 @@
         <tr>
           <td>{{ $page->title }}</td>
           <td>
-            <div x-data="active">
-              <input x-on:change="toggle({
-                url: '{{ route('admin.pages.active-toggle') }}',
-                id: {{ $page->id }},
-                token: '{{ csrf_token() }}'
-              })" type="checkbox" class="toggle toggle-sm" @checked($page->active) />
-            </div>
+            <livewire:admin.toggle-button :model="$page" :key="$page->id">            
           </td>
           <td>
             <div class="flex gap-2">
@@ -82,8 +76,4 @@
       </tbody>
     </table>
   @endif
-
-  @push('scripts')
-    <script src="{{ asset('js/alpine-data.js') }}"></script>
-  @endpush
 </x-admin.app>
