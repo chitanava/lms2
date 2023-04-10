@@ -56,7 +56,8 @@
                     </a>
                   </li>
                   <li>
-                    <form action="{{ route('admin.pages.destroy', $page->id) }}" method="POST">
+                    <livewire:admin.delete-confirmation :model="$page" :key="$page->id" :sku="$page->id"/>
+                    {{-- <form action="{{ route('admin.pages.destroy', $page->id) }}" method="POST">
                       @csrf
                       @method('DELETE')
                       <button type="submit" href="{{ route('admin.pages.destroy', $page->id) }}" class="flex gap-3 w-full">
@@ -65,7 +66,7 @@
                         </x-admin.icon>
                         Delete
                       </button>
-                    </form>
+                    </form> --}}
                   </li>
                 </ul>
               </div>
@@ -76,4 +77,27 @@
       </tbody>
     </table>
   @endif
+
+  <x-slot:confirmation>
+    <input type="checkbox" id="my-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg">Delete Confirmation</h3>
+        <p class="py-4">Are you sure you want to delete?</p>
+        <div class="modal-action">
+          <label for="my-modal" class="btn btn-active btn-ghost">Close</label>
+          <label x-data for="my-modal" class="btn btn-accent" x-on:click="Livewire.emit(`delete:${$store.deleteId}`, 'Page deleted!')">Yes, Delete</label>
+        </div>
+      </div>
+    </div>
+  </x-slot:confirmation>
+
+  @push('scripts')
+    <script>
+      document.addEventListener('alpine:init', () => {
+          Alpine.store('deleteId')
+      })
+    </script>
+  @endpush
+
 </x-admin.app>

@@ -60,6 +60,9 @@
       <x-admin.aside></x-admin.aside>
     </div>
   </div>
+
+  {{ $confirmation ?? '' }}
+  
   @livewireScripts
 </body>
 
