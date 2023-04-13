@@ -12,19 +12,19 @@
     <a href="{{ route('admin.pages.create') }}" class="btn btn-accent">New page</a>
   </x-admin.page-header>
 
-  @if ($pages->isNotEmpty())   
-    <form action="{{ route('admin.pages.index', request()->query()) }}" method="GET">
-      <div class="form-control">
-        <div class="input-group input-group-sm">
-          <input type="text" placeholder="Search…" class="input input-bordered input-sm" name="search"/>
-          <button class="btn btn-square btn-ghost btn-active btn-sm no-animation">
-            <x-admin.icon size="4">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-            </x-admin.icon>             
-          </button>
-        </div>
+  <form action="{{ route('admin.pages.index') }}" method="GET">
+    <div class="form-control">
+      <div class="input-group input-group-sm">
+        <input type="text" placeholder="Search…" class="input input-bordered input-sm @error('search') input-error @enderror" name="search" value="{{ old('search', request('search')) }}"/>
+        <button class="btn btn-square btn-ghost btn-active btn-sm no-animation">
+          <x-admin.icon size="4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+          </x-admin.icon>             
+        </button>
       </div>
-    </form>
+    </div>
+  </form>
+  @if ($pages->isNotEmpty())
     <table class="table w-full">
       <!-- head -->
       <thead>

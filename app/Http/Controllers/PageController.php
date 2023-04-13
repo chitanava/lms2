@@ -10,10 +10,14 @@ class PageController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Page::orderByDesC('id');
+        $validated = $request->validate([
+            'search' => 'nullable|string|min:3|max:50',
+        ]);
+
+        $query = Page::orderByDesc('id');
         
-        if($request->query('search')){
-            $query->where('title', 'like', "%{$request->query('search')}%");
+        if($search = $validated['search'] ?? null){
+            $query->where('title', 'like', "%{$search}%");
         }
 
         $pages = $query->paginate(5)->withQueryString();
