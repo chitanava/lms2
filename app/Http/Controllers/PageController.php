@@ -16,13 +16,15 @@ class PageController extends Controller
 
         $query = Page::orderByDesc('id');
         
+        $originalCount = $query->count();
+        
         if($search = $validated['search'] ?? null){
             $query->where('title', 'like', "%{$search}%");
         }
 
         $pages = $query->paginate(5)->withQueryString();
 
-        return view('admin.pages.index', ['pages' => $pages]);
+        return view('admin.pages.index', ['pages' => $pages, 'originalCount' => $originalCount]);
     }
 
     public function create()
