@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $pages = Page::orderByDesC('id')->paginate(5);
+        $query = Page::orderByDesC('id');
+        
+        if($request->query('search')){
+            $query->where('title', 'like', "%{$request->query('search')}%");
+        }
+
+        $pages = $query->paginate(5)->withQueryString();
+
         return view('admin.pages.index', ['pages' => $pages]);
     }
 
