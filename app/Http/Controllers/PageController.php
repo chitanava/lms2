@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     public function index()
     {
-        $pages = Page::orderByDesC('id')->get();
+        $pages = Page::orderByDesC('id')->paginate(5);
         return view('admin.pages.index', ['pages' => $pages]);
     }
 

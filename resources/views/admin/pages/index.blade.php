@@ -76,6 +76,8 @@
       @endforeach
       </tbody>
     </table>
+
+    {{ $pages->links() }}
   @endif
 
   <x-slot:confirmation>
