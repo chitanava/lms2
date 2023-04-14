@@ -13,7 +13,7 @@ class PageController extends Controller
         $validated = $request->validate([
             'search' => 'nullable|string|min:3|max:50',
             'order' => 'nullable|string',
-            'by' => 'nullable|string',
+            'sort' => 'nullable|string',
         ]);
 
         $query = Page::query();
@@ -24,8 +24,8 @@ class PageController extends Controller
             $query->where('title', 'like', "%{$search}%");
         }
 
-        if(($order = $validated['order'] ?? null) && ($by = $validated['by'] ?? null)){
-            $query->orderBy($order, $by);
+        if(($order = $validated['order'] ?? null) && ($sort = $validated['sort'] ?? null)){
+            $query->orderBy($order, $sort);
         } else {
             $query->orderByDesc('id');
         }

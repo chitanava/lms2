@@ -34,12 +34,12 @@
             <th>
               <a href="{{ request()->fullUrlWithQuery([
                 'order' => 'title', 
-                'by' => request('order') === 'title' && request('by') === 'desc' ? 'asc' : 'desc'
+                'sort' => request('order') === 'title' && request('sort') === 'desc' ? 'asc' : 'desc'
                 ]) }}">
                 <div class="inline-flex items-center">
                 <span class="mr-2">Title</span>
                 @if (request('order') === 'title')
-                  @if (request('by') === 'desc')                    
+                  @if (request('sort') === 'desc')                    
                     <x-admin.icon size="3">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </x-admin.icon>
@@ -55,12 +55,12 @@
             <th>
               <a href="{{ request()->fullUrlWithQuery([
                 'order' => 'active', 
-                'by' => request('order') === 'active' && request('by') === 'desc' ? 'asc' : 'desc'
+                'sort' => request('order') === 'active' && request('sort') === 'desc' ? 'asc' : 'desc'
                 ]) }}">
                 <div class="inline-flex items-center">
                 <span class="mr-2">Active</span>
                 @if (request('order') === 'active')
-                  @if (request('by') === 'desc')                    
+                  @if (request('sort') === 'desc')                    
                     <x-admin.icon size="3">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </x-admin.icon>
