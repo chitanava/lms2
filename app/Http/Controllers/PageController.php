@@ -12,14 +12,22 @@ class PageController extends Controller
     {
         $validated = $request->validate([
             'search' => 'nullable|string|min:3|max:50',
+            'order' => 'nullable|string',
+            'by' => 'nullable|string',
         ]);
 
-        $query = Page::orderByDesc('id');
+        $query = Page::query();
         
         $originalCount = $query->count();
         
         if($search = $validated['search'] ?? null){
             $query->where('title', 'like', "%{$search}%");
+        }
+
+        if(($order = $validated['order'] ?? null) && ($by = $validated['by'] ?? null)){
+            $query->orderBy($order, $by);
+        } else {
+            $query->orderByDesc('id');
         }
 
         $pages = $query->paginate(5)->withQueryString();

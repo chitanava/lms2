@@ -9,7 +9,7 @@
                     @if ($page == $paginator->currentPage())
                         <a class="btn btn-sm btn-active no-animation">{{ $page }}</a>
                     @else
-                        <a href="{{ $url }}" class="btn btn-sm btn-accent no-animation">{{ $page }}</a>
+                        <a href="{{ $url }}" class="btn btn-sm btn-ghost bg-base-300 no-animation">{{ $page }}</a>
                     @endif
                 @endforeach
             @endif

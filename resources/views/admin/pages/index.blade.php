@@ -31,8 +31,48 @@
         <!-- head -->
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Active</th>
+            <th>
+              <a href="{{ request()->fullUrlWithQuery([
+                'order' => 'title', 
+                'by' => request('order') === 'title' && request('by') === 'desc' ? 'asc' : 'desc'
+                ]) }}">
+                <div class="inline-flex items-center">
+                <span class="mr-2">Title</span>
+                @if (request('order') === 'title')
+                  @if (request('by') === 'desc')                    
+                    <x-admin.icon size="3">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </x-admin.icon>
+                  @else
+                    <x-admin.icon size="3">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                    </x-admin.icon>       
+                  @endif             
+                @endif
+                </div>
+              </a>
+            </th>
+            <th>
+              <a href="{{ request()->fullUrlWithQuery([
+                'order' => 'active', 
+                'by' => request('order') === 'active' && request('by') === 'desc' ? 'asc' : 'desc'
+                ]) }}">
+                <div class="inline-flex items-center">
+                <span class="mr-2">Active</span>
+                @if (request('order') === 'active')
+                  @if (request('by') === 'desc')                    
+                    <x-admin.icon size="3">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </x-admin.icon>
+                  @else
+                    <x-admin.icon size="3">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                    </x-admin.icon>       
+                  @endif             
+                @endif
+                </div>
+              </a>
+            </th>
             <th>Actions</th>
           </tr>
         </thead>
